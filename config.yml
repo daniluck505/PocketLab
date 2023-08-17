@@ -1,0 +1,37 @@
+name: 4_Aug_2023
+colab: False
+device: cpu # cuda
+
+dataset:
+  train_path: 'asl_alphabet_train/asl_alphabet_train'
+  test_path: 'asl_alphabet_test/asl_alphabet_test'
+  transforms: True
+  imsize: 32
+  shuffle: True
+  batch_size: 16
+
+network:
+  arch: resnet
+  block_type: bottleneck # resblock
+  num_blocks: 1
+  in_nc: 3
+  nc: 4
+  out_nc: 29
+  weights: 'link'
+
+optimizer:
+  name: adam
+  lr: 0.001
+  beta1: 0.9
+  beta2: 0.999
+
+train:
+  add_train: False
+  # torch.backends.cudnn.benchmark
+  benchmark: True
+  # torch.backends.cudnn.deterministic
+  deterministic: False
+  epochs: 1
+  use_amp: True
+  validate: False
+
