@@ -4,8 +4,7 @@ from datetime import datetime
 import torch
 
 def load_options(path):
-    options_path = 'src/config.yml'
-    with open(options_path, 'r') as f:
+    with open(path, 'r') as f:
         options = yaml.safe_load(f)
     return options
 
