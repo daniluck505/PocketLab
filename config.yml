@@ -1,6 +1,5 @@
 name: 4_Aug_2023
 colab: False
-device: cpu # cuda
 
 dataset:
   train_path: 'asl_alphabet_train/asl_alphabet_train'
@@ -26,12 +25,13 @@ optimizer:
   beta2: 0.999
 
 train:
+  device: cpu # cuda
   add_train: False
-  # torch.backends.cudnn.benchmark
   benchmark: True
-  # torch.backends.cudnn.deterministic
   deterministic: False
+  nums_classes: 2
   epochs: 1
   use_amp: True
+  accuracy: True
   validate: False
 
